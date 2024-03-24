@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Passo1 from './passo1/primeiro';
 import Passo2 from './passo2/segundo';
-import Passo3 from './passo3/terceiro';
+import Passo3 from './Passo3/terceiro';
 
 const steps = ["Informações", "Interesses", "Contato"];
 
