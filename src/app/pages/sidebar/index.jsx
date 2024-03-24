@@ -31,7 +31,7 @@ const Sidebar = ({setOption}) => {
     <Box className={styles.barra_lateral}>
       
       <Box>
-        <Typography className={styles.title}>Menu</Typography>
+        <Typography className={styles.title}></Typography>
         {data?.map((item) => (
           <ListItemButton key={item.label} className={styles.listItemButton} onClick={ItensMenu}>
             <ListItemIcon className={styles.listItemIcon}>

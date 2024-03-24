@@ -16,7 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import styles from './index.module.sass';
 
 const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Wesley Costaut'];
 
 function Topbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -57,10 +57,10 @@ function Topbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Wesley Costa
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -95,7 +95,7 @@ function Topbar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -113,10 +113,10 @@ function Topbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Wesley Costa
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -124,7 +124,7 @@ function Topbar() {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

@@ -1,9 +1,12 @@
-@import "./src/app/globals.module.scss"
+@import "./src/app/globals.module.sass"
 
 .barra_lateral
   width: 250px
   height: 90vh
   background-color: $primary-color
+  @media screen and (max-width: 768px) 
+    width: 100%
+    height: 180px
 
 .title
   color: rgba(255, 255, 255, .8)
@@ -18,6 +21,9 @@
   padding: 5px 24px 5px 24px
   &:hover
     background-color: rgba(255, 255, 255, .3)
+  @media screen and (max-width: 768px)
+    justify-content: center
+
   
 .listItemIcon
   display: flex
@@ -30,3 +36,5 @@
 .listItemText
   font-size: 14px 
   font-weight: "bold"
+  @media screen and (max-width: 768px)
+    font-size: 16pt
