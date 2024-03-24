@@ -6,7 +6,9 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Passo1 from './passos/primeiro'
+import Passo1 from './passo1/primeiro';
+import Passo2 from './passo2/segundo';
+import Passo3 from './passo3/terceiro';
 
 const steps = ["Informações", "Interesses", "Contato"];
 
@@ -95,7 +97,7 @@ const Formularios = () => {
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
-            Todos os passo completos
+            Muito obrigado por sua participação!!!
           </Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Box sx={{ flex: "1 1 auto" }} />
@@ -105,6 +107,8 @@ const Formularios = () => {
       ) : (
         <React.Fragment>
           {activeStep === 0 ? <Passo1 dados={dados} setDados={setDados}/> : null}
+          {activeStep === 1 ? <Passo2 dados={dados} setDados={setDados}/> : null}
+          {activeStep === 2 ? <Passo3 dados={dados} setDados={setDados}/> : null}
           <Typography sx={{ mt: 2, mb: 1 }}>Passo {activeStep + 1}</Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
