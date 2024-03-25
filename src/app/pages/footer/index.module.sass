@@ -1,7 +1,8 @@
 @import "./src/app/globals.module.sass"
-    
+
 .footer
     width: 100vw
+    height: 50px
     display: flex
     flex-direction: row
     align-items: center
@@ -10,3 +11,14 @@
     padding: 0 !important
     margin: 0 !important
     max-width: none !important
+    @media screen and (max-width: 768px)
+        height: 80px
+
+.social
+    width: 28px
+    height: 28px
+    fill: #fff
+    stroke: #fff
+    @media screen and (max-width: 768px)
+        width: 48px
+        height: 48px
