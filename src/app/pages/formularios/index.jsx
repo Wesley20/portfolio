@@ -20,8 +20,8 @@ const Formularios = () => {
   const [bairro, setBairro] = React.useState("");
   const [cidade, setCidade] = React.useState("");
 
-  const dados = {name, doc, cep, logradouro, bairro, cidade}
-  const setDados = {setName, setDoc, setCep, setLogradouro, setBairro, setCidade}
+  const dados = { name, doc, cep, logradouro, bairro, cidade };
+  const setDados = { setName, setDoc, setCep, setLogradouro, setBairro, setCidade };
   const validaPasso1 = Object.values(dados).every(value => value !== "");
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -45,14 +45,13 @@ const Formularios = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped(newSkipped);
   };
+
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
       throw new Error("You can't skip a step that isn't optional.");
     }
 
@@ -68,14 +67,14 @@ const Formularios = () => {
     setActiveStep(0);
   };
 
-  console.log(activeStep)
+  console.log(activeStep);
 
   return (
     <Box className={styles.formulario}>
-      
-      
-
-      <Stepper activeStep={activeStep}>
+      <Stepper
+        activeStep={activeStep}
+        orientation={window.innerWidth < 756 ? 'vertical' : 'horizontal'}
+      >
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
@@ -88,7 +87,7 @@ const Formularios = () => {
             stepProps.completed = false;
           }
           return (
-            <Step key={label} {...stepProps}>
+            <Step className={styles.step} key={label} {...stepProps}>
               <StepLabel {...labelProps}>{label}</StepLabel>
             </Step>
           );
@@ -106,9 +105,9 @@ const Formularios = () => {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          {activeStep === 0 ? <Passo1 dados={dados} setDados={setDados}/> : null}
-          {activeStep === 1 ? <Passo2 dados={dados} setDados={setDados}/> : null}
-          {activeStep === 2 ? <Passo3 dados={dados} setDados={setDados}/> : null}
+          {activeStep === 0 ? <Passo1 dados={dados} setDados={setDados} /> : null}
+          {activeStep === 1 ? <Passo2 dados={dados} setDados={setDados} /> : null}
+          {activeStep === 2 ? <Passo3 dados={dados} setDados={setDados} /> : null}
           <Typography sx={{ mt: 2, mb: 1 }}>Passo {activeStep + 1}</Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
