@@ -12,12 +12,16 @@ import {
   FormControl,
   InputLabel,
   OutlinedInput,
+  Button,
+  Alert,
+  Snackbar,
 } from "@mui/material";
 import { jwtDecode } from "jwt-decode";
 import styles from "./index.module.sass";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FacebookSDK from "@/app/utils/facebookSDK";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Autenticação1 = () => {
   const [data, setData] = useState("teste");
@@ -25,6 +29,7 @@ const Autenticação1 = () => {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const [showPassword, setShowPassword] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   useEffect(() => {
     // Função para carregar o script do Google SignIn
@@ -103,12 +108,23 @@ const Autenticação1 = () => {
     event.preventDefault();
   };
 
+  const handleClickLogin = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <Box>
       <FacebookSDK />
       <Paper className={styles.paper}>
-        
-      <Typography>Acesse sua conta</Typography>
+        <Typography>Acesse sua conta</Typography>
         <Container className={styles.lista}>
           <TextField
             id="login"
@@ -145,11 +161,20 @@ const Autenticação1 = () => {
               }
             />
           </FormControl>
+          <Button
+            sx={{ margin: 1 }}
+            variant="contained"
+            onClick={handleClickLogin}
+          >
+            Logar
+          </Button>
         </Container>
         <Divider>ou</Divider>
         <Container className={styles.lista}>
-          <Box className= {styles.botaoSocial}>{googleScriptLoaded && <div id="buttonDiv"></div>}</Box>
-          <Box className= {styles.botaoSocial}>
+          <Box className={styles.botaoSocial}>
+            {googleScriptLoaded && <div id="buttonDiv"></div>}
+          </Box>
+          <Box className={styles.botaoSocial}>
             <div
               className="fb-login-button"
               data-width="250"
@@ -162,6 +187,22 @@ const Autenticação1 = () => {
           </Box>
         </Container>
       </Paper>
+
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          teste
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

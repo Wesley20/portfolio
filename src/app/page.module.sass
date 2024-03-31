@@ -3,6 +3,11 @@
   width: 100vw !important
   height: calc(100vh - 20px)!important
   margin: 0 !important
+  overflow: auto
+  scrollbar-width: none
+  -ms-overflow-style: none
+  &:-webkit-scrollbar
+    display: none
 
 .main
   display: flex
@@ -11,6 +16,12 @@
   align-items: flex-start
   width: 100vw
   height: 100vh
+  margin: 0 !important
+  overflow: auto
+  scrollbar-width: none
+  -ms-overflow-style: none
+  &:-webkit-scrollbar
+    display: none
 
 .general_box
   display: flex
@@ -20,9 +31,21 @@
   align-items: flex-start
   width: 100vw
   height: 100vh
+  margin: 0 !important
+  overflow: auto
+  scrollbar-width: none
+  -ms-overflow-style: none
+  &:-webkit-scrollbar
+    display: none
   @media screen and (max-width: 768px)
     display: flex
     flex-direction: column
+    margin: 0 !important
+    overflow: auto
+    scrollbar-width: none
+    -ms-overflow-style: none
+    &:-webkit-scrollbar
+      display: none
 
 /* Mobile */
 @media (max-width: 700px)
@@ -30,6 +53,11 @@
     width: 100vw
     height: 100vh
     margin: 0 !important
+    overflow: auto
+    scrollbar-width: none
+    -ms-overflow-style: none
+    &:-webkit-scrollbar
+      display: none
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px)
@@ -37,6 +65,11 @@
     width: 100vw
     height: 100vh
     margin: 0 !important
+    overflow: auto
+    scrollbar-width: none
+    -ms-overflow-style: none
+    &:-webkit-scrollbar
+      display: none
 
 @keyframes rotate
   from
