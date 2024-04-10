@@ -30,6 +30,7 @@ const Autenticação1 = () => {
   const [senha, setSenha] = useState("");
   const [showPassword, setShowPassword] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const [validaLogin, setValidaLogin] = React.useState(true);
 
   useEffect(() => {
     // Função para carregar o script do Google SignIn
@@ -116,8 +117,33 @@ const Autenticação1 = () => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
+  };
+
+  const handleLogin = (e) => {
+    setLogin(e.target.value);
+    if (e.target.value.length < 7) {
+      setValidaLogin(true);
+    } else {
+      if (senha.length < 7) {
+        setValidaLogin(true);
+      } else {
+        setValidaLogin(false);
+      }
+    }
+  };
+
+  const handlePassword = (e) => {
+    setSenha(e.target.value);
+    if (e.target.value.length < 7) {
+      setValidaLogin(true);
+    } else {
+      if (login.length < 7) {
+        setValidaLogin(true);
+      } else {
+        setValidaLogin(false);
+      }
+    }
   };
 
   return (
@@ -132,9 +158,9 @@ const Autenticação1 = () => {
             size="small"
             label="Login"
             value={login}
-            onChange={(e) => setLogin(e.target.value)}
+            onChange={handleLogin}
           />
-          <FormControl variant="outlined">
+          <FormControl onChange={handlePassword} variant="outlined">
             <InputLabel
               className={styles.password}
               htmlFor="outlined-adornment-password"
@@ -145,6 +171,7 @@ const Autenticação1 = () => {
             <OutlinedInput
               id="password"
               className={styles.password}
+              value={senha}
               size="small"
               type={showPassword ? "text" : "password"}
               label="Password"
@@ -165,6 +192,7 @@ const Autenticação1 = () => {
             sx={{ margin: 1 }}
             variant="contained"
             onClick={handleClickLogin}
+            disabled={validaLogin}
           >
             Logar
           </Button>
@@ -198,7 +226,7 @@ const Autenticação1 = () => {
           onClose={handleClose}
           severity="success"
           variant="filled"
-          sx={{ width: '100%' }}
+          sx={{ width: "100%" }}
         >
           teste
         </Alert>
